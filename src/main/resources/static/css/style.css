@@ -1,0 +1,118 @@
+:root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --normal: #22c55e;
+    --warning: #f97316;
+    --critical: #ef4444;
+    --unknown: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 { font-size: 1.25rem; margin: 0; }
+
+.header-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+main { padding: 20px 24px; max-width: 1200px; margin: 0 auto; }
+
+section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+section h2 { font-size: 1.05rem; margin: 0 0 12px; color: var(--accent); }
+
+.filter-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+.filter-bar label { color: var(--muted); font-size: 0.9rem; }
+
+select, input, button {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+}
+
+button { cursor: pointer; border-color: var(--accent); }
+button:hover { background: var(--accent); color: var(--bg); }
+
+.status { margin-bottom: 10px; font-size: 0.9rem; }
+.muted { color: var(--muted); }
+.error { color: var(--critical); margin-top: 8px; }
+.hidden { display: none; }
+
+/* Aktuelle Messwerte als Karten */
+.cards { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 220px;
+}
+
+.card h3 { margin: 0 0 6px; font-size: 0.95rem; color: var(--accent); }
+.card p { margin: 2px 0; font-size: 0.88rem; }
+.card .wl { font-size: 1.4rem; font-weight: 700; }
+
+/* Tabelle */
+.table-wrap { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+
+th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+
+/* Warnstufen-Farbcodes (Punkt 7) */
+.badge { padding: 2px 10px; border-radius: 999px; font-weight: 700; font-size: 0.8rem; }
+
+.badge.NORMAL   { background: var(--normal);   color: #052e12; }
+.badge.WARNING  { background: var(--warning);  color: #3b1a02; }
+.badge.CRITICAL { background: var(--critical); color: #fff;   }
+.badge.UNKNOWN  { background: var(--unknown);  color: #fff;   }
+
+tr.row-NORMAL   td:first-child { border-left: 4px solid var(--normal); }
+tr.row-WARNING  td:first-child { border-left: 4px solid var(--warning); }
+tr.row-CRITICAL td:first-child { border-left: 4px solid var(--critical); }
+tr.row-UNKNOWN  td:first-child { border-left: 4px solid var(--unknown); }
+
+#alertsList .alert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+footer { text-align: center; padding: 14px; color: var(--muted); font-size: 0.85rem; }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochwasser-Fr&uuml;hwarnsystem</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>&#x1F30A; Hochwasser-Fr&uuml;hwarnsystem</h1>
+    <div class="header-controls">
+        <label for="formatSelect">Format:</label>
+        <select id="formatSelect">
+            <option value="json" selected>JSON</option>
+            <option value="xml">XML</option>
+        </select>
+        <label for="refreshSelect">Aktualisierung:</label>
+        <select id="refreshSelect">
+            <option value="0">aus</option>
+            <option value="5000">5 s</option>
+            <option value="10000" selected>10 s</option>
+            <option value="30000">30 s</option>
+        </select>
+        <span id="lastUpdate" class="muted"></span>
+    </div>
+</header>
+
+<main>
+    <!-- Warnungen -->
+    <section id="alerts-section">
+        <h2>Aktuelle Warnungen</h2>
+        <div id="alertsStatus" class="status muted">Lade Warnungen&hellip;</div>
+        <div id="alertsList"></div>
+    </section>
+
+    <!-- Filter -->
+    <section>
+        <h2>Filter</h2>
+        <div class="filter-bar">
+            <label for="stationSelect">Station:</label>
+            <select id="stationSelect"><option value="">alle</option></select>
+
+            <label for="fromInput">Von:</label>
+            <input type="datetime-local" id="fromInput">
+
+            <label for="toInput">Bis:</label>
+            <input type="datetime-local" id="toInput">
+
+            <label for="warningSelect">Warnstufe:</label>
+            <select id="warningSelect">
+                <option value="">alle</option>
+                <option value="NORMAL">NORMAL</option>
+                <option value="WARNING">WARNING</option>
+                <option value="CRITICAL">CRITICAL</option>
+                <option value="UNKNOWN">UNKNOWN</option>
+            </select>
+
+            <button id="applyBtn">Anwenden</button>
+            <button id="resetBtn">Zur&uuml;cksetzen</button>
+        </div>
+        <div id="filterError" class="error hidden"></div>
+    </section>
+
+    <!-- Aktueller Messwert -->
+    <section>
+        <h2>Aktueller Messwert</h2>
+        <div id="latestStatus" class="status muted">Lade aktuellen Messwert&hellip;</div>
+        <div id="latestCards" class="cards"></div>
+    </section>
+
+    <!-- Historische Messwerte -->
+    <section>
+        <h2>Historische Messwerte</h2>
+        <div id="historyStatus" class="status muted">Lade Historie&hellip;</div>
+        <div class="table-wrap">
+            <table id="historyTable">
+                <thead>
+                <tr>
+                    <th>Station</th>
+                    <th>Zeitpunkt</th>
+                    <th>Wasserstand (cm)</th>
+                    <th>Durchfluss (m&sup3;/s)</th>
+                    <th>Niederschlag (mm/h)</th>
+                    <th>Akku (%)</th>
+                    <th>Status</th>
+                    <th>Warnstufe</th>
+                </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span class="muted">DEZSYS_GK71_FLOODMONITOR_REST &middot; Daten: /api/v1 &middot; Format: <span id="formatLabel">JSON</span></span>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
