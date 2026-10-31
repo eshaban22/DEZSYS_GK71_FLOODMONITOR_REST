@@ -1,0 +1,39 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Altes Lehrer-Referenz-Repo (eigener Git-Klon, duerfen nicht committet werden)
+/DEZSYS_GK71_FLOODMONITOR_REST_INCOMPLETE/
+
+### Maven ###
+target/
+
+### IntelliJ ###
+.idea/
+*.iml
